@@ -1,9 +1,8 @@
 var ndns = require('../lib/ndns');
 var server = ndns.createServer('udp4');
 
-var LOCAL_PORT = 53;
-var ns_c = ndns.ns_class;
-var ns_t = ndns.ns_type;
+var ns_c = ndns.ns_c;
+var ns_t = ndns.ns_t;
 
 server.on("request", function(req, res) {
     res.setHeader(req.header);
@@ -14,10 +13,9 @@ server.on("request", function(req, res) {
     res.header.ancount = 0;
     for (var i = 0; i < req.q.length; i++) {
 	res.q.add(req.q[i]);
-	res.addRR(req.q[i].name, 0, ns_c.in, ns_t.txt, "Hello world");
+	res.addRR(req.q[i].name, 0, ns_c.in, ns_t.txt, "hello, world");
 	res.header.ancount++;
     }
-    
     res.send();
 });
-server.bind(LOCAL_PORT);
+server.bind(53);
