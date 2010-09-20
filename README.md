@@ -79,13 +79,13 @@ DNS request messages are represented by an object like this:
 
 This is a dgram.Socket with the following events:
 
-> Event: 'request'
+### Event: 'request'
 function (request, response) {}
 
 request is an instance of ndns.ServerRequest and response is an instance of
 ndns.ServerResponse
 
-> ndns.createServer(type, requestListener)
+### ndns.createServer(type, requestListener)
 Return a new dns server object
 
 The requestListener is a function which is automatially added to the 'request'
