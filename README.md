@@ -27,6 +27,7 @@ To run the server, put the code into a file called example.js and execute it
 with the node program:
 
 > node example.js
+
 > Server running at 0.0.0.0:5300
 
 All of the examples in the documentation can be run similarly.
@@ -37,43 +38,42 @@ To use the ndns server and client one must require('ndns').
 
 DNS request messages are represented by an object like this:
 
-{ header:
-   { id: 39545
-   , qr: 0
-   , opcode: 0
-   , aa: 0
-   , tc: 0
-   , rd: 1
-   , ra: 0
-   , z: 0
-   , ad: 0
-   , cd: 0
-   , rcode: 0
-   , qdcount: 1
-   , ancount: 0
-   , nscount: 0
-   , arcount: 0
-   }
-, q: 
-   { '0': 
-      { name: 'example.com'
-      , type: 1
-      , class: 1
-      }
-   , length: 1
-   }
-, rr: 
-   { '0': 
-      { name: 'example.com'
-      , ttl: 3600
-      , class: 1
-      , type: 16
-      , rdata: ["hello, world"]
-      }
-   , length: 1
-   }
-}
-
+	{ header:
+	  { id: 39545
+	    , qr: 0
+	    , opcode: 0
+	    , aa: 0
+	    , tc: 0
+	    , rd: 1
+	    , ra: 0
+	    , z: 0
+	    , ad: 0
+	    , cd: 0
+	    , rcode: 0
+	    , qdcount: 1
+	    , ancount: 0
+	    , nscount: 0
+	    , arcount: 0
+	  }
+	  , q: 
+	  { '0': 
+	    { name: 'example.com'
+	      , type: 1
+	      , class: 1
+	    }
+	    , length: 1
+	  }
+	  , rr: 
+	  { '0': 
+	    { name: 'example.com'
+	      , ttl: 3600
+	      , class: 1
+	      , type: 16
+	      , rdata: ["hello, world"]
+	    }
+	    , length: 1
+	  }
+	}
 
 ## ndns.Server
 
@@ -97,3 +97,4 @@ For documentation on dgram.Socket, see http://nodejs.org/api.html#dgram-267
 
 This object is created internally by a DNS-server, not by the user, and passed
 as the first argument to a 'request' listener
+
